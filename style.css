@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #000;
+    height: 100vh;
+    overflow: hidden;
+    width: 100%;
+}
+h1{
+    color: rgb(252, 0, 0);
+    font-size: 3em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 0 5px 6px red;
+    margin-top: 2%;
+}
+.game{
+    position: relative;
+    background: url(image-fond/fond\ \(3\).png);
+    background-size: cover;
+    background-position: bottom;
+    width: 65%;
+    height: 80%;
+    border-radius: 40px;
+    box-shadow: 0 10px 10px rgba(255, 255, 255, 0.568);
+}
+.game #herosMain{
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+    width: 15%;
+    transition:  0.5s ease;
+}
+.Wicked{
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    width: 15%;
+    animation: Move-Wicked 3s forwards ease-in;
+}
+@keyframes Move-Wicked {
+    to{
+        right: 75%;
+        top: 75%;
+    }
+}
