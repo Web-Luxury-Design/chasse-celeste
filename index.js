@@ -23,17 +23,27 @@ const MoveWicked = () => {
     Wicked.src = "image-fond/wicked1.png";
     Game.appendChild(Wicked);
     Wicked.classList.add("Wicked");
-
-    // Ajouter un gestionnaire d'événement de transition
-    Wicked.addEventListener('transitionend', function() {
-        // Obtenez la position actuelle après la transition
-        let computedStyle = window.getComputedStyle(Wicked);
-        let topValue = parseInt(computedStyle.top);
-        
-        // Vérifiez si la position est à 75%
-        if (topValue === 75) {
-            console.log("ueue");
-        }
-    });
 }
 MoveWicked();
+const TouchWicked=()=>{
+    document.body.addEventListener("click",(e)=>{
+        let Touch=e.target
+        if (Touch.classList.contains("Wicked")) {
+            Touch.remove()
+            console.log("toucher");
+        }
+    })
+}
+TouchWicked()
+let Space=true
+let interval;
+window.addEventListener("keydown", (e) => {
+    if (e.key === " " && Space) {
+        interval=setInterval(()=>{
+            MoveWicked() 
+            Space=false
+        },2000)
+    }else if(e.key === " " && !Space){
+        clearInterval(interval)
+    }
+})
